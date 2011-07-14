@@ -1,0 +1,54 @@
+ShareThis intergration for Umbraco.
+
+see ----- http://help.sharethis.com/customization/chicklets
+
+Chickets are created in Umbraco, under a 'backoffice/settings' node.
+
+Editors are then allowed to pick 'chicklets' (basically sharethis icons) using a XPath picker
+
+This means editors can easy control which social networking sites linking too.
+
+Had lots of requests for this, so thought i'd built it! Still needs a little work, example xml is below
+
+<!-- Example Output -->
+<!--
+	<span class="st_facebook"> </span>
+	<span class="st_twitter"> </span>
+	<span class="st_testtest-myspace-there's-no-space-here"> </span>
+	<span class="st_email"> </span>
+-->
+
+<!-- XML Sample -->
+	<!-- Apply Templates -->	
+	<!--
+		<XPathCheckBoxList>
+	    <nodeId>1112</nodeId>
+	    <nodeId>1113</nodeId>
+	    <nodeId>1114</nodeId>
+	    <nodeId>1115</nodeId>
+	  </XPathCheckBoxList>
+	-->
+	
+	<!-- Returned XML for each node -->
+	<!--
+		<shareThisChicklet id="1112" parentID="1111" level="4" writerID="0" creatorID="0" nodeType="1105" template="0" sortOrder="1" createDate="2011-07-14T16:29:18" updateDate="2011-07-14T16:30:27" nodeName="Facebook" urlName="facebook" writerName="Laurence Gillian" creatorName="Laurence Gillian" path="-1,1109,1110,1111,1112" isDoc="">
+	    <chickletID />
+	    <chickletImage />
+	  </shareThisChicklet>
+	  
+	  <shareThisChicklet id="1113" parentID="1111" level="4" writerID="0" creatorID="0" nodeType="1105" template="0" sortOrder="2" createDate="2011-07-14T16:30:33" updateDate="2011-07-14T16:30:37" nodeName="Twitter" urlName="twitter" writerName="Laurence Gillian" creatorName="Laurence Gillian" path="-1,1109,1110,1111,1113" isDoc="">
+	    <chickletID />
+	    <chickletImage />
+	  </shareThisChicklet>
+	
+	<shareThisChicklet id="1114" parentID="1111" level="4" writerID="0" creatorID="0" nodeType="1105" template="0" sortOrder="3" createDate="2011-07-14T16:30:42" updateDate="2011-07-14T16:34:18" nodeName="Myspace" urlName="myspace" writerName="Laurence Gillian" creatorName="Laurence Gillian" path="-1,1109,1110,1111,1114" isDoc="">
+    <chickletID>testtest-myspace-there's-no-space-here</chickletID>
+    <chickletImage />
+  </shareThisChicklet>
+  
+  <shareThisChicklet id="1115" parentID="1111" level="4" writerID="0" creatorID="0" nodeType="1105" template="0" sortOrder="4" createDate="2011-07-14T16:30:56" updateDate="2011-07-14T16:31:02" nodeName="Email" urlName="email" writerName="Laurence Gillian" creatorName="Laurence Gillian" path="-1,1109,1110,1111,1115" isDoc="">
+    <chickletID />
+    <chickletImage />
+  </shareThisChicklet>
+
+-->
