@@ -35,7 +35,7 @@
 		<xsl:param name="node" />
 		<xsl:param name="style" />
 		<!-- There must be a better way, please please please! -->
-		<span class="t_{eStrings:lowercase(($node/chickletID[normalize-space()] | $node/@nodeName[not($node/chickletID[normalize-space()])]))}{$style}">
+		<span class="t_{eStrings:lowercase(($node/@nodeName[not(normalize-space(../chickletID))] | $node/chickletID)[1])}{$style}">
 			<xsl:if test="$node/chickletImage[normalize-space()]">
 				<img src="{$node/chickletImage}" alt="Share with {$node/@nodeName}"/> 
 			</xsl:if>
