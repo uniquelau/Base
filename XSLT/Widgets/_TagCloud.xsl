@@ -56,7 +56,7 @@
 					<xsl:value-of select="@count" />
 					<xsl:text> blogs are tagged with </xsl:text>
 				</span>
-				<a href="{umbraco.library:NiceUrl(@id)}">
+				<a href="{umb:NiceUrl(@id)}">
 					<xsl:attribute name="class">
 						<xsl:call-template name="getRelativeFontSize">
 							<xsl:with-param name="currentValue" select="@count" />
