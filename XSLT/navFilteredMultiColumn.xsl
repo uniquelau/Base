@@ -64,6 +64,13 @@
 		<!-- clever logic here, that does the split, can't be too hard -->
 		<xsl:call-template name="list-item" />
 		<!-- argh, hahah can't be that hard, >.< -->
+		<xsl:call-template name="create-column" select="*[position() mod $childCount = 1]" />
+	</xsl:template>
+	
+	<xsl:template name="create-column">
+		<div>
+			<!-- dang, thats wrong! need match and modes -->
+		</div>
 	</xsl:template>
 
 </xsl:stylesheet>
