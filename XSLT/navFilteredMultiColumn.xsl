@@ -7,7 +7,7 @@
 	xmlns:umb="urn:umbraco.library"  
 	exclude-result-prefixes="msxml umb">
 
-	<xsl:output method="xml" omit-xml-declaration="yes"/>
+	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
 	<xsl:param name="currentPage"/>
 
 	<!-- Filtered Navigation, with Multi Column Dropdowns - Laurie, 15th July 2011   -->
@@ -65,7 +65,7 @@
 		<!-- clever logic here, that does the split, can't be too hard -->
 		<xsl:call-template name="list-item" />
 		<!-- argh, hahah can't be that hard, >.< -->
-		<xsl:call-template name="create-column" select="*[position() mod $childCount = 1]" />
+		<xsl:call-template name="create-column"  />
 	</xsl:template>
 	
 	<xsl:template name="create-column">
@@ -75,5 +75,3 @@
 	</xsl:template>
 
 </xsl:stylesheet>
-
-<!-- For HTML/CSS examples please see https://github.com/uniquelau/Base/tree/master/HTML/Navigation/2%20Column%20Dropdown -->
