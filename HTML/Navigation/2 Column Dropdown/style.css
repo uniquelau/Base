@@ -6,25 +6,35 @@ ul li a 				{}
 ul li:hover 		{}
 ul li a.active	{}
 
-ul li div									{position: relative; display: block; overflow: hidden;}
-ul li div div							{position: relative; display: inline; float: left;}
-ul li ul									{}
-ul li ul li								{position: relative; display: block; float: none;}
-ul li ul li								{background: orange}			
-ul li ul li a							{}
-ul li ul li:hover					{}
-ul li ul li a.active			{}
-	
+ul li div							{position: relative; display: block; overflow: hidden;}
+ul li div div					{position: relative; display: inline; float: left;}
+ul li ul							{}
+ul li ul li						{position: relative; display: block; float: none;}
+ul li ul li						{background: orange}			
+ul li ul li a					{}
+ul li ul li:hover			{}
+ul li ul li a.active	{}
+
 ul li div				{display: none; visibility: hidden;}
 ul li:hover div	{display: block; visibility: visible;}
 
-ul li div.col1, ul li div.col2, ul li div.col3, ul li div.col4 {margin-left: -50%}
-ul li div.fixLeft					{margin-left: -0%}	
-ul li div.fixRight				{margin-left: -100%}
 /* Set Column Widths */
-ul li div div							{width: 100px}	
-ul li div div ul					{width: 100px}
-ul li div.col1						{width: 100px}
-ul li div.col2						{width: 200px}
-ul li div.col3						{width: 300px}
-ul li div.col4						{width: 400px}
+ul li div div					{width: 100px}	
+ul li div div ul			{width: 100px}
+ul li div.col1				{width: 100px}
+ul li div.col2				{width: 200px}
+ul li div.col3				{width: 300px}
+ul li div.col4				{width: 400px}
+
+/* Set the Menu's which appear centered */
+/* Difference / 2, divided by ul li x 100 = % */
+/* (((ul li div.col1{width}) - (ul li{width})) / 2) / (ul li{width}) x 100 = % */
+
+ul li div.col1				{margin-left: -0%}
+ul li div.col2				{margin-left: -50%}
+ul li div.col3				{margin-left: -100%}
+ul li div.col4 				{margin-left: -150%}
+
+ul li div.fixLeft			{position: absolute; left: 0; margin-left: 0;}	
+ul li div.fixRight		{position: absolute; right: 0; margin-left: 0;}
+
