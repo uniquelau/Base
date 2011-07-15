@@ -11,6 +11,9 @@
 	<xsl:param name="currentPage"/>
 
 	<!-- Filtered Navigation, with Multi Column Dropdowns - Laurie, 15th July 2011   -->
+	<xsl:variable name="itemLimit" select="'6'" />
+	<xsl:variable name="pushLimit" select="'2'" />
+	<xsl:variable name="maxDepth" select="'3'" />
 
 	<xsl:template match="/">
 		<xsl:variable name="filter" select="/macro/filter" />
@@ -34,18 +37,33 @@
 	</xsl:template>
 	
 	<xsl:template name="test-node">
-		
+		<xsl:if test="[@level &lt; $maxDepth and @isDoc]">
+			<xsl:variable name="total" select="count(ancestor-or-self::* [@isDoc and @level= 1]/* [@isDoc])" />
+			<xsl:call-template="create-sub-list">
+				<xsl:with-param name="push">
+					<xsl:if test="position() $lte $pushLimit">fixLeft</xsl:if>
+					<xsl:if test="position() $gte ($total - $pushLimit)">fixRight</xsl:if>
+				</xsl:with-param>
+			</xsl:call-template>
+		</xsl:if>
 	</xsl:template>
 	
 	<xsl:template name="create-sub-list">
+		<xsl:param name="push" />		
+		<xsl:variable name="childCount" select="count(child::* [@isDoc])" />
+		<xsl:variable name="col" select="$itemLimit / $childCount" />
 		<div class="{$col $push}">
-			<xsl:call-template name="populate-sub-list" />
+			<xsl:call-template name="populate-sub-list">
+				<xsl:param name="childCount" select="$childCount" />
+			</xsl:call-template>
 		</div>
 	</xsl:template>
 	
 	<xsl:template name="populate-sub-list">
+		<xsl:param name="childCount" />
 		<!-- clever logic here, that does the split, can't be too hard -->
 		<xsl:call-template name="list-item" />
+		<!-- argh, hahah can't be that hard, >.< -->
 	</xsl:template>
 
 </xsl:stylesheet>
