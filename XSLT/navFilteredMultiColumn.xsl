@@ -37,12 +37,13 @@
 	</xsl:template>
 	
 	<xsl:template name="test-node">
-		<xsl:if test="[@level &lt; $maxDepth and @isDoc]">
+		<xsl:if test="@level &lt; $maxDepth and @isDoc">
 			<xsl:variable name="total" select="count(ancestor-or-self::* [@isDoc and @level= 1]/* [@isDoc])" />
-			<xsl:call-template="create-sub-list">
+			<xsl:call-template name="create-sub-list">
 				<xsl:with-param name="push">
-					<xsl:if test="position() $lte $pushLimit">fixLeft</xsl:if>
-					<xsl:if test="position() $gte ($total - $pushLimit)">fixRight</xsl:if>
+					<!-- should be less/greater than or EQUAL TO -->
+					<xsl:if test="position() &lt; $pushLimit">fixLeft</xsl:if>
+					<xsl:if test="position() &gt; ($total - $pushLimit)">fixRight</xsl:if>
 				</xsl:with-param>
 			</xsl:call-template>
 		</xsl:if>
@@ -51,10 +52,10 @@
 	<xsl:template name="create-sub-list">
 		<xsl:param name="push" />		
 		<xsl:variable name="childCount" select="count(child::* [@isDoc])" />
-		<xsl:variable name="col" select="$itemLimit / $childCount" />
-		<div class="{$col $push}">
+		<xsl:variable name="col" select="$itemLimit div $childCount" />
+		<div class="{$col} {$push}">
 			<xsl:call-template name="populate-sub-list">
-				<xsl:param name="childCount" select="$childCount" />
+				<xsl:with-param name="childCount" select="$childCount" />
 			</xsl:call-template>
 		</div>
 	</xsl:template>
