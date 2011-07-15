@@ -18,14 +18,34 @@
 	</xsl:template>
     
 	<xsl:template match="* [@isDoc]">
+		<xsl:call-template name="list-item" />
+	</xsl:template>
+	
+	<xsl:template name="list-item">
 		<li>
 			<a href="{umb:NiceUrl(@id)}">
 				<xsl:if test="$currentPage/ancestor-or-self::*/@id = current()/@id">
 					<xsl:attribute name="class">active</xsl:attribute>
 				</xsl:if>
 				<xsl:value-of select="@nodeName" />
+				<xsl:call-template name="test-node" />
 			</a>
 		</li>
+	</xsl:template>
+	
+	<xsl:template name="test-node">
+		
+	</xsl:template>
+	
+	<xsl:template name="create-sub-list">
+		<div class="{$col $push}">
+			<xsl:call-template name="populate-sub-list" />
+		</div>
+	</xsl:template>
+	
+	<xsl:template name="populate-sub-list">
+		<!-- clever logic here, that does the split, can't be too hard -->
+		<xsl:call-template name="list-item" />
 	</xsl:template>
 
 </xsl:stylesheet>
