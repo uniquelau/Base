@@ -34,7 +34,7 @@
 							<xsl:value-of select="umb:NiceUrl(@id)" />
 						</loc>
 						<lastmod>
-							<xsl:value-of select="umb:FormatDateTime(@updateDate, 'yyyy-MM-ddTHH:mm:ss+00:00')" />
+							<xsl:value-of select="@updateDate" />
 						</lastmod>
 						<xsl:if test="metaSitemapChangeFreq">
 							<changefreq><xsl:value-of select="metaSitemapChangeFreq" /></changefreq>
