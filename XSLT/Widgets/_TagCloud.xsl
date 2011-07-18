@@ -5,7 +5,8 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
 	xmlns:msxml="urn:schemas-microsoft-com:xslt"
 	xmlns:umb="urn:umbraco.library"  
-	exclude-result-prefixes="msxml umb">
+	exclude-result-prefixes="msxml umb"
+>
 
 	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
 	<xsl:param name="currentPage"/>

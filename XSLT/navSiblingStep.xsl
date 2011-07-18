@@ -3,12 +3,12 @@
 <xsl:stylesheet 
 	version="1.0" 
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
-	xmlns:msxml="urn:schemas-microsoft-com:xslt"
 	xmlns:msxsl="urn:schemas-microsoft-com:xslt"
 	xmlns:umb="urn:umbraco.library"  
-	exclude-result-prefixes="msxml msxsl umb">
+	exclude-result-prefixes="msxsl umb"
+>
 
-	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
+	<xsl:output method="xml" omit-xml-declaration="yes"/>
 	<xsl:param name="currentPage"/>
 	
 	<!-- Navigation Sibling Step 'Next' / 'Previous' - Laurie, 18th July 2011   -->

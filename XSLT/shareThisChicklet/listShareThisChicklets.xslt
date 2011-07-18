@@ -7,7 +7,7 @@
 	exclude-result-prefixes="umb eStrings"
 >
 
-	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes" />
+	<xsl:output method="xml" omit-xml-declaration="yes" />
 	<xsl:param name="currentPage" />
 	
 	<!-- List ShareThis Chicklets - Laurie 14th July -->

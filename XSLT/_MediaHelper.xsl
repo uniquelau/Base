@@ -7,7 +7,7 @@
 	xmlns:umb="urn:umbraco.library"  
 	exclude-result-prefixes="msxml umb">
 
-	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
+	<xsl:output method="xml" omit-xml-declaration="yes"/>
 	<xsl:param name="currentPage"/>
 
 	<!-- Media Helper - Laurie, 15th July 2011   -->

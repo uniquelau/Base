@@ -6,7 +6,7 @@
 	exclude-result-prefixes="umb"
 >
 
-	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes" />
+	<xsl:output method="xml" omit-xml-declaration="yes" />
 	<xsl:param name="currentPage" />
 	
 	<!-- Children 'Fixed' Navigation - Laurie 14th July -->
