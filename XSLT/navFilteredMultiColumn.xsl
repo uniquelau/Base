@@ -12,7 +12,6 @@
 
 	<!-- Filtered Navigation, with Multi Column Dropdowns - Laurie, 15th July 2011   -->
 	<xsl:variable name="itemLimit" select="'6'" />
-	<xsl:variable name="pushLimit" select="'2'" />
 	<xsl:variable name="maxDepth" select="'3'" />
 
 	<xsl:template match="/">
@@ -40,20 +39,14 @@
 		<xsl:if test="@level &lt; $maxDepth and @isDoc">
 			<xsl:variable name="total" select="count(ancestor-or-self::* [@isDoc and @level= 1]/* [@isDoc])" />
 			<xsl:call-template name="create-sub-list">
-				<xsl:with-param name="push">
-					<!-- should be less/greater than or EQUAL TO -->
-					<xsl:if test="position() &lt; $pushLimit">fixLeft</xsl:if>
-					<xsl:if test="position() &gt; ($total - $pushLimit)">fixRight</xsl:if>
-				</xsl:with-param>
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
 	
 	<xsl:template name="create-sub-list">
-		<xsl:param name="push" />		
 		<xsl:variable name="childCount" select="count(child::* [@isDoc])" />
 		<xsl:variable name="col" select="$itemLimit div $childCount" />
-		<div class="{$col} {$push}">
+		<div class="{$col}">
 			<xsl:call-template name="populate-sub-list">
 				<xsl:with-param name="childCount" select="$childCount" />
 			</xsl:call-template>
