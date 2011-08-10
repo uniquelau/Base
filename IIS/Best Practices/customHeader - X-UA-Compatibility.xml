@@ -1,0 +1,22 @@
+<system.webServer>
+	<httpProtocol>
+		<customHeaders>
+			<clear />
+			<add name="X-UA-Compatible" value="IE=Edge, chrome=1" />
+		</customHeaders>
+	</httpProtocol>
+</system.webServer>
+
+<!-- MSDN Documentation -->
+<!-- http://msdn.microsoft.com/en-us/cc817572.aspx -->
+
+<!-- This can be put in the header of every html page, however this will
+     break validation (which is a shame!). So we can set this on the
+     http header, which makes sense. The reason for setting this, is to
+     instruction Internet Explorer to process pages using the latest 
+     rendering engine, and not fall back into compatibility mode.
+
+     The Chrome=1 part, also takes advantage of Google Frame in IE if
+     Chrome has been installed on the clients system.
+
+		 Having this HEADER is consider best practice on all new websites -->
